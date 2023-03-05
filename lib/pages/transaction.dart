@@ -61,7 +61,7 @@ class TransactionState extends State<Transaction> {
           padding: const EdgeInsets.all(20.0),
           child: SizedBox(
             width: MediaQuery.of(context).size.width * 1.0,
-            height: MediaQuery.of(context).size.height * 0.2,
+            // height: MediaQuery.of(context).size.height * 0.2,
             ////////////////////////PART ONE STARTS///////////////////////////////////////////////////////
 <<<<<<< HEAD
             child: Row(
@@ -75,6 +75,8 @@ class TransactionState extends State<Transaction> {
                   flex: 3,
 >>>>>>> 9664a00 (Initial commit! 2)
                   child: Container(
+                    width: 200,
+                    height: 50,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(30),
@@ -93,7 +95,7 @@ class TransactionState extends State<Transaction> {
                         const SizedBox(height: 14),
                         SizedBox(
                           width: MediaQuery.of(context).size.width * 0.8,
-                          height: MediaQuery.of(context).size.height * 0.05,
+                          // height: MediaQuery.of(context).size.height * 0.05,
                           child: ClipRRect(
                             child: ElevatedButton(
                               onPressed: _showDateTimePicker,
@@ -122,12 +124,12 @@ class TransactionState extends State<Transaction> {
                         ),
                         const SizedBox(height: 14),
                         SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.8,
-                          height: MediaQuery.of(context).size.height * 0.05,
+                          // width: MediaQuery.of(context).size.width * 0.8,
+                          // height: MediaQuery.of(context).size.height * 0.05,
                           child: ElevatedButton(
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
-                              primary: const Color(0xFF2F1256),
+                              backgroundColor: const Color(0xFF2F1256),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -139,7 +141,6 @@ class TransactionState extends State<Transaction> {
                                 const SizedBox(width: 2),
                                 SizedBox(
                                   width: MediaQuery.of(context).size.width * 0.3,
-                                  height: MediaQuery.of(context).size.height * 0.05,
                                   child: TextFormField(
                                     keyboardType: TextInputType.datetime,
                                     decoration: const InputDecoration(
@@ -316,6 +317,8 @@ class TransactionState extends State<Transaction> {
             child: Expanded(
               flex: 3,
               child: Container(
+                width: 200,
+                height: 50,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(30),
