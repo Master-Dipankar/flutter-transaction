@@ -63,8 +63,10 @@ class TransactionState extends State<Transaction2> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+    //////////////////////////Start part 1 Date Picker//////////////////////////////////////////////////////////
               SizedBox(
                 width: MediaQuery.of(context).size.width * 1.0,
+
                 child: Container(
                   width: 200,
                   height: 100,
@@ -151,62 +153,251 @@ class TransactionState extends State<Transaction2> {
                   ),
                 ),
               ),
+  //////////////////////////End part 1 Date Picker//////////////////////////////////////////////////////////
+
+ //////////////////////////Start part 2//////////////////////////////////////////////////////////
+              const SizedBox( width: 10.0, height: 25.0),
+                      Container(
+                          width: MediaQuery.of(context).size.width * 1.0,
+                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(30.0),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.3),
+                                spreadRadius: 4,
+                                blurRadius: 5,
+                                offset: const Offset(0, 2), // changes position of shadow
+                              ),
+                            ],
+                          ),
+                          child: Row(
+                            children: [
+                              const Icon(Icons.person_outlined, color: Color(0xFF2F1256)),
+                              const SizedBox(width: 10.0),
+                              Expanded(
+                                child: TextFormField(
+                                  decoration: const InputDecoration(
+                                    hintText: 'User Name or Phone Number',
+                                    border: InputBorder.none,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+  //////////////////////////End part 2//////////////////////////////////////////////////////////
+
+  //////////////////////////Start part 3//////////////////////////////////////////////////////////
+                const SizedBox( width: 10.0, height: 25.0),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 1.0,
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(30.0),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.3),
+                              spreadRadius: 4,
+                              blurRadius: 5,
+                              offset: const Offset(0, 2), // changes position of shadow
+                            ),
+                          ],
+                        ),
+                        child: Row(
+                          children: [
+                            const Icon(Icons.sim_card_outlined, color: Color(0xFF2F1256)),
+                            const SizedBox(width: 10.0),
+                            Expanded(
+                              child: DropdownButtonFormField<String>(
+                                icon: const SizedBox.shrink(), //added to remove default dropdown icon
+                                items: <String>['Airtel', 'BSNL', 'Jio', 'V!']
+                                    .map<DropdownMenuItem<String>>((String value) {
+                                  return DropdownMenuItem<String>(
+                                    value: value,
+                                    child: Text(value),
+                                  );
+                                }).toList(),
+                                decoration: const InputDecoration(
+                                  hintText: 'Select operator',
+                                  border: InputBorder.none,
+                                ),
+                                onChanged: (String? value) {
+                                  // ToDo something when an option is selected
+                                },
+                              ),
+                            ),
+                            const Icon(Icons.arrow_drop_down_circle_outlined, color: Color(0xFF2F1256)),
+                          ],
+                        ),
+                      ),
+    //////////////////////////End Part 3//////////////////////////////////////////////////////////
+
+     //////////////////////////Start Part 4//////////////////////////////////////////////////////////
+              const SizedBox( width: 10.0, height: 25.0),
+                      Container(
+                            width: MediaQuery.of(context).size.width * 1.0,
+                            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(30.0),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.3),
+                                  spreadRadius: 4,
+                                  blurRadius: 5,
+                                  offset: const Offset(0, 2), // changes position of shadow
+                                ),
+                              ],
+                            ),
+                            child: Row(
+                              children: [
+                                const Icon(Icons.check_circle_outline, color: Color(0xFF2F1256)),
+                                const SizedBox(width: 10.0),
+                                Expanded(
+                                  child: DropdownButtonFormField<String>(
+                                    icon: const SizedBox.shrink(), //added to remove default dropdown icon
+                                    items: <String>['Active', 'Inactive']
+                                        .map<DropdownMenuItem<String>>((String value) {
+                                      return DropdownMenuItem<String>(
+                                        value: value,
+                                        child: Text(value),
+                                      );
+                                    }).toList(),
+                                    decoration: const InputDecoration(
+                                      hintText: 'Select Status',
+                                      border: InputBorder.none,
+                                    ),
+                                    onChanged: (String? value) {
+                                      // ToDo something when an option is selected
+                                    },
+                                  ),
+                                ),
+                                const Icon(Icons.arrow_drop_down_circle_outlined, color: Color(0xFF2F1256)),
+                              ],
+                            ),
+                          ),
+     //////////////////////////End Part 4//////////////////////////////////////////////////////////
+
+       ////////////////////////////Start Part 5//////////////////////////////////////////////////////////
+              const SizedBox(height: 30.0),
               Container(
-                width: 200,
-                height: 50,
-                color: Colors.green,
-                child: const Center(
-                  child: Text(
-                    'Hello World2',
-                    style: TextStyle(color: Colors.white, fontSize: 20),
-                  ),
+                width: MediaQuery.of(context).size.width * 1.0,
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: const [
+                    Padding(
+                      padding: EdgeInsets.only(right: 8.0),
+                      child: Text(
+                        "Username",
+                        style: TextStyle(
+                          color: Color(0xFF2F1256),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+                      ),
+                    ),
+                    Spacer(),
+                    Expanded(
+                      flex: 2,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 16.0),
+                        child: Text(
+                          "Commission",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Color(0xFF2F1256),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Spacer(),
+                    Padding(
+                      padding: EdgeInsets.only(left: 8.0),
+                      child: Text(
+                        "Created On",
+                        style: TextStyle(
+                          color: Color(0xFF2F1256),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              Container(
-                width: 200,
-                height: 50,
-                color: Colors.green,
-                child: const Center(
-                  child: Text(
-                    'Hello World2',
-                    style: TextStyle(color: Colors.white, fontSize: 20),
+  ////////////////////////////End Part 5//////////////////////////////////////////////////////////
+
+////////////////////////////Start Part 6 Search Button//////////////////////////////////////////////////////////
+              const SizedBox(height: 70.0),
+              ElevatedButton(
+                onPressed: () {
+                  // Todo.
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF2F1256),
+                  minimumSize: const Size(120, 65),
+                  padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 16.0),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0),
                   ),
                 ),
-              ),
-              Container(
-                width: 200,
-                height: 50,
-                color: Colors.green,
-                child: const Center(
-                  child: Text(
-                    'Hello World2',
-                    style: TextStyle(color: Colors.white, fontSize: 20),
+                child: const Text(
+                  'Search',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
                 ),
+
+
               ),
+////////////////////////////End Part 6 Search Button//////////////////////////////////////////////////////////
+  ////////////////////////////Start Part 6 Footer//////////////////////////////////////////////////////////
+              const SizedBox(height: 70.0),
               Container(
-                width: 200,
-                height: 50,
-                color: Colors.green,
-                child: const Center(
-                  child: Text(
-                    'Hello World2',
-                    style: TextStyle(color: Colors.white, fontSize: 20),
-                  ),
+                width: MediaQuery.of(context).size.width,
+                height: 80,
+                color: Color(0xFF2F1256),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: const [
+                    Icon(
+                      Icons.home_filled,
+                      size: 30,
+                      color: Colors.white70,
+                    ),
+                    Icon(
+                      Icons.account_balance_wallet_rounded,
+                      size: 30,
+                      color: Colors.white,
+                    ),
+                    Icon(
+                      Icons.qr_code_scanner_outlined,
+                      size: 30,
+                      color: Colors.white70,
+                    ),
+                    Icon(
+                      Icons.list,
+                      size: 30,
+                      color: Colors.white70,
+                    ),
+                    Icon(
+                      Icons.settings,
+                      size: 30,
+                      color: Colors.white,
+                    ),
+                  ],
                 ),
               ),
-              Container(
-                width: 200,
-                height: 50,
-                color: Colors.orange,
-                child: const Center(
-                  child: Text(
-                    'Hello World3',
-                    style: TextStyle(color: Colors.white, fontSize: 20),
-                  ),
-                ),
-              ),
-            ],
+   ////////////////////////////End Part 6 Footer//////////////////////////////////////////////////////////
+        ],
           ),
         ),
       ),
