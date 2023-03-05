@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:transaction/pages/transaction.dart';
 import 'package:transaction/pages/transaction2.dart';
 
 void main(){

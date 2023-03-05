@@ -69,7 +69,7 @@ class TransactionState extends State<Transaction2> {
 
                 child: Container(
                   width: 200,
-                  height: 100,
+                  height: 150,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(30),
@@ -89,56 +89,67 @@ class TransactionState extends State<Transaction2> {
                         onPressed: _showDateTimePicker,
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFF2F1256),
+                          minimumSize: const Size(120, 45),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30),
                           ),
                         ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text('Start Date'),
-                            const SizedBox(width: 2),
-                            Text(
-                              // ignore: unnecessary_null_comparison
-                              _selectedDate != null
-                                  ? DateFormat('dd/MM/yy').format(_selectedDate)
-                                  : 'DD/MM/YY',
-                              style: const TextStyle(fontSize: 18),
-                            ),
-                          ],
+                        child: SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.8,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text('Start Date'),
+                              const SizedBox(width: 2),
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width * 0.2,
+                                child: Text(
+                                  // ignore: unnecessary_null_comparison
+                                  _selectedDate != null
+                                      ? DateFormat('dd/MM/yy').format(_selectedDate)
+                                      : 'DD/MM/YY',
+                                  style: const TextStyle(fontSize: 18),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFF2F1256),
+                          minimumSize: const Size(120, 20),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30),
                           ),
+                          textStyle: const TextStyle(
+                            decoration: TextDecoration.none,
+                          ),
                         ),
                         child: SizedBox(
-                          width: double.infinity,
+                          width: MediaQuery.of(context).size.width * 0.8,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               const Text(
                                 'Start Date',
                                 style: TextStyle(
-                                  fontSize: 18.0,
+                                  fontSize: 14.0,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
                               const SizedBox(width: 2),
                               // const SizedBox(width: 10),
                               SizedBox(
-                                width: MediaQuery.of(context).size.width * 0.3,
+                                width: MediaQuery.of(context).size.width * 0.2,
                                 child: Expanded(
                                   child: TextFormField(
                                     keyboardType: TextInputType.datetime,
                                     decoration: const InputDecoration(
                                       hintText: 'DD/MM/YY',
                                       hintStyle: TextStyle(
-                                        fontSize: 18,
+                                        fontSize: 14,
                                         color: Colors.grey,
                                       ),
                                     ),
@@ -155,7 +166,7 @@ class TransactionState extends State<Transaction2> {
               ),
   //////////////////////////End part 1 Date Picker//////////////////////////////////////////////////////////
 
- //////////////////////////Start part 2//////////////////////////////////////////////////////////
+              //////////////////////////Start part 2//////////////////////////////////////////////////////////
               const SizedBox( width: 10.0, height: 25.0),
                       Container(
                           width: MediaQuery.of(context).size.width * 1.0,
@@ -283,58 +294,60 @@ class TransactionState extends State<Transaction2> {
 
        ////////////////////////////Start Part 5//////////////////////////////////////////////////////////
               const SizedBox(height: 30.0),
-              Container(
-                width: MediaQuery.of(context).size.width * 1.0,
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: const [
-                    Padding(
-                      padding: EdgeInsets.only(right: 8.0),
-                      child: Text(
-                        "Username",
-                        style: TextStyle(
-                          color: Color(0xFF2F1256),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        ),
+          Container(
+            width: MediaQuery.of(context).size.width * 1.0,
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: const [
+                Flexible(
+                  flex: 3,
+                  child: Padding(
+                    padding: EdgeInsets.only(right: 8.0),
+                    child: Text(
+                      "Username",
+                      style: TextStyle(
+                        color: Color(0xFF2F1256),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
                       ),
                     ),
-                    Spacer(),
-                    Expanded(
-                      flex: 2,
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 16.0),
-                        child: Text(
-                          "Commission",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Color(0xFF2F1256),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Spacer(),
-                    Padding(
-                      padding: EdgeInsets.only(left: 8.0),
-                      child: Text(
-                        "Created On",
-                        style: TextStyle(
-                          color: Color(0xFF2F1256),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        ),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
-              ),
-  ////////////////////////////End Part 5//////////////////////////////////////////////////////////
-
-////////////////////////////Start Part 6 Search Button//////////////////////////////////////////////////////////
-              const SizedBox(height: 70.0),
+                Expanded(
+                  flex: 4,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Text(
+                      "Commission",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Color(0xFF2F1256),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                ),
+                Flexible(
+                  flex: 3,
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 9.0),
+                    child: Text(
+                      "Created On",
+                      style: TextStyle(
+                        color: Color(0xFF2F1256),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+ ////////////////////////////End Part 5 words//////////////////////////////////////////////////////////
+              const SizedBox(height: 45.0),
               ElevatedButton(
                 onPressed: () {
                   // Todo.
@@ -359,49 +372,48 @@ class TransactionState extends State<Transaction2> {
 
               ),
 ////////////////////////////End Part 6 Search Button//////////////////////////////////////////////////////////
-  ////////////////////////////Start Part 6 Footer//////////////////////////////////////////////////////////
-              const SizedBox(height: 70.0),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: 80,
-                color: Color(0xFF2F1256),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: const [
-                    Icon(
-                      Icons.home_filled,
-                      size: 30,
-                      color: Colors.white70,
-                    ),
-                    Icon(
-                      Icons.account_balance_wallet_rounded,
-                      size: 30,
-                      color: Colors.white,
-                    ),
-                    Icon(
-                      Icons.qr_code_scanner_outlined,
-                      size: 30,
-                      color: Colors.white70,
-                    ),
-                    Icon(
-                      Icons.list,
-                      size: 30,
-                      color: Colors.white70,
-                    ),
-                    Icon(
-                      Icons.settings,
-                      size: 30,
-                      color: Colors.white,
-                    ),
-                  ],
-                ),
-              ),
-   ////////////////////////////End Part 6 Footer//////////////////////////////////////////////////////////
+
         ],
           ),
         ),
       ),
-
+  ////////////////////////////Start Part 6 Footer//////////////////////////////////////////////////////////
+      bottomNavigationBar: Container(
+        width: MediaQuery.of(context).size.width,
+        height: 80,
+        color: Color(0xFF2F1256),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: const [
+            Icon(
+              Icons.home_filled,
+              size: 30,
+              color: Colors.white70,
+            ),
+            Icon(
+              Icons.account_balance_wallet_rounded,
+              size: 30,
+              color: Colors.white,
+            ),
+            Icon(
+              Icons.qr_code_scanner_outlined,
+              size: 30,
+              color: Colors.white70,
+            ),
+            Icon(
+              Icons.list,
+              size: 30,
+              color: Colors.white70,
+            ),
+            Icon(
+              Icons.settings,
+              size: 30,
+              color: Colors.white,
+            ),
+          ],
+        ),
+      ),
+ ////////////////////////////End Part 6 Footer//////////////////////////////////////////////////////////
 
     );
   }
